@@ -31,16 +31,19 @@ h1 {
 #gameGrid {
     border-collapse: collapse;
     margin-top: 20px;
+    border-collapse: separate; /* Changed to separate to enable border-spacing */
+    border-spacing: 5px; /* Adds space between the cells */
 }
 
 /* Style for each table cell */
 #gameGrid td {
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
     border: 1px solid #202020;
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
+    border-radius: 3px; 
 }
 
 /* Background color for Player 1 - 2 cells */
