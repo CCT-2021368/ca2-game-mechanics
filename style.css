@@ -1,32 +1,75 @@
+
 body {
+    
     display: flex;
     flex-direction: column;
     align-items: center;
+    
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
 }
 
 h1 {
+
     margin-top: 20px;
 }
 
+/* Style for the game information section */
+#gameInfo {
+    margin-top: 20px;
+}
+
+/* Style for the monster selection section */
+#monsterSelection {
+    margin-top: 10px;
+}
+
+/* Style for the game grid table */
 #gameGrid {
     border-collapse: collapse;
     margin-top: 20px;
 }
 
+/* Style for each table cell */
 #gameGrid td {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border: 1px solid #000;
     text-align: center;
     vertical-align: middle;
+    cursor: pointer;
 }
 
+/* Background color for Player 1's cells */
 .player1 {
+    
     background-color: #ffcccc;
 }
 
+/* Background color for Player 2's cells */
 .player2 {
-    background-color: #ccccff;
+    Background-color: #ccccff;
+}
+
+/* Display 'V' for vampire class */
+.vampire::before {
+    content: "V";
+}
+
+/* Display 'W' for werewolf class */
+.werewolf::before {
+    content: "W";
+}
+
+/* Display 'G' for ghost class */
+.ghost::before {
+    content: "G";
+}
+
+/* General monster class styles */
+.monster {
+    
+    font-weight: bold;
+    font-size: 20px;
+    color: red;
 }
