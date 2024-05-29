@@ -43,11 +43,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle cell click event to place a monster
     function handleCellClick(cell, row) {
         if (selectedMonsterType && !cell.classList.contains('monster')) {
+
             // Ensure the monster is placed on the correct player's side of the grid
             if ((currentPlayer === 'Player 1' && row < 5) || (currentPlayer === 'Player 2' && row >= 5)) {
                 // Add the monster class and specific monster type to the cell
+                
                 cell.classList.add('monster', selectedMonsterType);
                 // Update the monster count for the current player
+                
                 if (currentPlayer === 'Player 1') {
                     player1Monsters++;
                     player1CountSpan.textContent = player1Monsters;
