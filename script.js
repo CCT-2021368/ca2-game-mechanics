@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     for (let i = 0; i < 10; i++) {
         const row = table.insertRow();
         for (let j = 0; j < 10; j++) {
+           
             const cell = row.insertCell();
             // Assign player-specific classes to the cells
             cell.classList.add(i < 5 ? 'player1' : 'player2');
@@ -46,8 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Ensure the monster is placed on the correct player's side of the grid
             if ((currentPlayer === 'Player 1' && row < 5) || (currentPlayer === 'Player 2' && row >= 5)) {
-                // Add the monster class and specific monster type to the cell
                 
+                // Add the monster class and specific monster type to the cell
                 cell.classList.add('monster', selectedMonsterType);
                 // Update the monster count for the current player
                 
@@ -58,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     player2Monsters++;
                     player2CountSpan.textContent = player2Monsters;
                 }
+                
                 // Clear the selected monster type and switch turns
                 selectedMonsterType = '';
                 switchTurn();

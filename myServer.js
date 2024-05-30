@@ -5,7 +5,7 @@ const WebSocket = require('ws'); // WebSocket for real-time communication
 
 // Initialize an Express application
 const app = express();
-const PORT = process.env.PORT || 3000; // Define the port the server will listen on
+const PORT = 3000; // Define the port the server will listen on
 
 // Serve static files from the current directory
 app.use(express.static(path.resolve(__dirname)));
@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
+
 // Start the HTTP server and listen on the specified port
 const server = app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
@@ -23,12 +24,22 @@ const server = app.listen(PORT, () => {
 // Initialize a WebSocket server using the same HTTP server
 const wss = new WebSocket.Server({ server });
 
-// Event handler for new WebSocket connections
+
+/**
+ * REFERENCE :
+ * https://www.npmjs.com/package/websocket
+ * 
+ * 
+ * Event handler for new WebSocket connections
+ * encapsulate the two event handler for incoming and closing connetion
+*/
+
 wss.on('connection', function connection(ws) {
     console.log('Client connected');
 
     // Event handler for receiving messages from clients
     ws.on('message', function incoming(message) {
+        
         const decodedMessage = message.toString('utf-8'); // Decode the buffer to a string
         console.log('Received message:', decodedMessage);
 
@@ -44,4 +55,5 @@ wss.on('connection', function connection(ws) {
     ws.on('close', function close() {
         console.log('Client disconnected');
     });
+
 });
